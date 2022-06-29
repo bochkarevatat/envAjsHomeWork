@@ -2,7 +2,7 @@ image: Ubuntu1804 # образ для сборки
 stack: node 16 # окружение
 branches:
   only:
-  - main # ветка git
+  - master # ветка git
 cache: node_modules
 install:
 - yarn
@@ -11,8 +11,8 @@ build: off
 # команда установки зависимостей
 build_script:
 - yarn build # команда сборки
-# test_script:
-# - yarn lint && yarn test # скрипт тестирования
+test_script:
+- yarn lint && yarn test # скрипт тестирования
 deploy_script: # скрипт развёртывания
 - git config --global credential.helper store
 - git config --global user.name AppVeyor
